@@ -1,0 +1,26 @@
+body {
+  background-color: #011627;
+  color: white;
+}
+
+h1,
+h2,
+h3,
+p {
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar_actions {
+  display: flex;
+  flex-direction: column;
+}
+.navbar_actions button {
+  margin: 5px;
+}
