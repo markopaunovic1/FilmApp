@@ -19,6 +19,10 @@ export async function getMovie(id) {
   return data;
 }
 
+export function getPosterPath(name) {
+  return "https://image.tmdb.org/t/p/original" + name;
+}
+
 async function fetchUrl(url) {
   const options = { method: "GET", headers: { accept: "application/json" } };
   let jsonResponse = "";
