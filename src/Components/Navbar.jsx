@@ -13,26 +13,28 @@ function Navbar({ title }) {
   };
 
   const handleNavigateToOneMovie = () => {
-    navigate('/allmovies/onemovie'); // You may need to provide the correct URL here
+    navigate('/allmovies/onemovie');
   };
 
   const handleNavigateToCheckout = () => {
-    navigate('/checkout'); // Update with the correct URL for checkout
+    navigate('/checkout');
   };
 
   const handleNavigateToKundkorg = () => {
-    navigate('/kundkorg'); // Update with the correct URL for checkout
+    navigate('/kundkorg');
   };
 
   return (
     <nav className='navbar'>
       <section className='navbar_title'>
         <h3>{title}</h3>
+        <p>kanske bara en bakåtknapp här</p>
       </section>
       <section className='navbar_logo'>
         <h1>Film App</h1>
       </section>
       <section className='navbar_actions'>
+        <p>ev bara knapp för kundkorgen? Och ingen mer navigering?</p>
         <button onClick={handleNavigateToHome}>Till Front Page</button>
         <button onClick={handleNavigateToAllMovies}>Till All Movies</button>
         <button onClick={handleNavigateToOneMovie}>Till One Movie</button>
