@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { search, getMovie } from "./api.js";
+import { search, getMovie , getPosterPath} from "./api.js";
 
 const TestApi = () => {
   const [data, setData] = useState([]);
@@ -18,7 +18,7 @@ const TestApi = () => {
       {data.map((movie, index) => (
         <div>
           <h2>{movie.original_title}</h2>
-          <img src={"https://image.tmdb.org/t/p/original/" + movie.poster_path} width="300"></img>
+          <img src={getPosterPath(movie.poster_path)} width="300"></img>
         </div>
       ))}
     </div>
