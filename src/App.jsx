@@ -6,11 +6,13 @@ import AllMovies from './Components/AllMovies';
 import OneMovie from './Components/OneMovie';
 import Checkout from './Components/Checkout';
 import Kundkorg from './Components/Kundkorg';
+import TestApi from './Components/TestApi';
 
 function App() {
   return (
     <div>
-      <header>
+      <TestApi />
+      {/*<header>
         <Navbar title='Front page' />
       </header>
       <main>
@@ -21,7 +23,7 @@ function App() {
           <Route path='/checkout' element={<Checkout />}></Route>
           <Route path='/kundkorg' element={<Kundkorg />}></Route>
         </Routes>
-      </main>
+  </main>*/}
     </div>
   );
 }
