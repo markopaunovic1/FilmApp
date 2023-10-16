@@ -11,13 +11,22 @@ const Checkout = () => {
     <>
       <p>display checkout</p>
       <p>orderbekräftelse</p>
-      <div>
-        {' '}
+      <div className='info_about_customer'>
         <p> Information om kund</p>
-        <p>input fields?</p>
-        <p>namn</p>
-        <p>epost</p>
-        <p>telefonnummer</p>
+        <label>
+          Namn:
+          <input type='text' id='name' placeholder='Skriv ditt namn' />
+        </label>
+
+        <label>
+          E-post:
+          <input type='email' id='email' placeholder='Din e-postadress' />
+        </label>
+
+        <label>
+          Telefonnummer:
+          <input type='tel' id='phone' placeholder='Ditt telefonnummer' />
+        </label>
       </div>
 
       <div>
