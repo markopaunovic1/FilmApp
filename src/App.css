@@ -48,3 +48,24 @@ p {
 input {
   background-color: inherit;
 }
+
+.welcome_movie_container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.small_film_list {
+  margin-left: 10px;
+}
+
+.all-movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie-card {
+  flex: 0 0 calc(23% - 10px);
+  margin-bottom: 20px;
+}
