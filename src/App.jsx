@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <header>
-        <Navbar title='Front page' />
+        <Navbar />
       </header>
       <main>
         <Routes>

@@ -1,10 +1,32 @@
+import MovieCard from './MovieCard';
+
 function Welcome() {
   return (
     <>
       <p>Welcome page</p>
-      <p>Knapp för login om vi vill ha det?</p>
-      <p>en film längst upp som är en random populär film</p>
-      <p>olika scroll listor med filmer i olika kategorier</p>
+      <section>
+        <label>
+          <input type='text' id='search' placeholder='Sök film' />
+        </label>
+      </section>
+
+      <section>
+        <h2>Populära filmer</h2>
+        <div className='welcome_movie_container'>
+          <MovieCard imageUrl='image_url_1' filmName='Film 1' />
+          <MovieCard imageUrl='image_url_2' filmName='Film 2' />
+          <MovieCard imageUrl='image_url_3' filmName='Film 3' />
+        </div>
+      </section>
+
+      <section>
+        <h2>Nya filmer</h2>
+        <div className='welcome_movie_container'>
+          <MovieCard imageUrl='image_url_1' filmName='Film 1' />
+          <MovieCard imageUrl='image_url_2' filmName='Film 2' />
+          <MovieCard imageUrl='image_url_3' filmName='Film 3' />
+        </div>
+      </section>
     </>
   );
 }
