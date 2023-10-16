@@ -24,3 +24,27 @@ p {
 .navbar_actions button {
   margin: 5px;
 }
+
+.one_movie_payment_options {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.one_movie_payment_options button {
+  margin: 10px;
+}
+
+.info_about_customer {
+  background-color: #d9d9d91a;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info_about_customer label {
+  margin-bottom: 10px;
+}
+
+input {
+  background-color: inherit;
+}
