@@ -1,6 +1,8 @@
 import MovieCard from './MovieCard';
 
 const AllMovies = () => {
+  //lista som loopar igenom alla filmer beroende på vad som finns i sökrutan
+
   return (
     <>
       <p>All Movies in lists </p>
