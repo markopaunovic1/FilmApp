@@ -5,7 +5,7 @@ function MovieCard({ imageUrl, filmName }) {
   const navigate = useNavigate();
 
   const handleNavigateToOneMovie = () => {
-    navigate('/allmovies/onemovie');
+    navigate(`/allmovies/` + filmName);
   };
 
   return (

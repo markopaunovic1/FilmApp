@@ -1,6 +1,8 @@
 import MovieCard from './MovieCard';
 
 function Welcome() {
+  //lista som loopar igenom alla filmer i de olika kategorierna
+
   return (
     <>
       <p>Welcome page</p>
