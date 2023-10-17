@@ -12,8 +12,7 @@
  * 
  * All functions returns a promise object.
  * 
- * TODO: Add get movies for a genre, popular movies and trending. 
- *       Add genre to search if supported.
+ * TODO:  popular movies and trending. 
  * 
  */
 
@@ -56,6 +55,25 @@ export async function getMovie(id) {
 export async function getGenres() {
   const url = baseUrl + "genre/movie/list?api_key=" + apiKey;
   return await fetchUrl(url);
+}
+
+//Get movies from genre
+export async function getMoviesFromGenre(id) {
+    const url = baseUrl + "discover/movie?api_key=" + apiKey + "&with_genres=" + id;
+    return addPath(await fetchUrl(url));
+}
+
+//Get trending movies (option day, week)
+export async function getTrending(time_window="day") {
+    const url = baseUrl + "trending/movie/" + time_window + "?api_key=" + apiKey;
+
+    return addPath(await fetchUrl(url));
+}
+
+export async function getRecommendation(id, pageNr = 1) {
+    const url = baseUrl + "movie/" + id + "/recommendations?api_key=" + apiKey + "&page=" + pageNr;
+
+    return addPath(await fetchUrl(url));
 }
 
 //Fulhack 3000 to add image path and youtube path
