@@ -10,6 +10,7 @@ const AllMovies = () => {
       <label>
         <input type='text' id='search' placeholder='Sök film' />
       </label>
+      <p></p>
 
       <section className='all-movies-container'>
         <MovieCard

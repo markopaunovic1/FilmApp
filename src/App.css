@@ -69,3 +69,10 @@ input {
   flex: 0 0 calc(23% - 10px);
   margin-bottom: 20px;
 }
+
+.trash-image {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  -webkit-filter: grayscale(1) invert(1);
+}
