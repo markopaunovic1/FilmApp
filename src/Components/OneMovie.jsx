@@ -64,8 +64,8 @@ const OneMovie = (id) => {
       <p>{movie.overview}</p>
 
       <section className='one_movie_payment_options'>
-        <button onClick={() => handleButtonClick(39)}>Hyra 39kr/dygn</button>
-        <button onClick={() => handleButtonClick(99)}> Köp 99kr</button>
+        <h4 onClick={() => handleButtonClick(39)}>Hyra 39kr/dygn</h4>
+        <h4 onClick={() => handleButtonClick(99)}> Köp 99kr</h4>
       </section>
 
       <p>Temporär kundkorg: {selectedValues} :-</p>
