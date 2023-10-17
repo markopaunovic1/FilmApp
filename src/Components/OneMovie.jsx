@@ -1,10 +1,23 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions } from '../features/addMovieToCart';
 
 const OneMovie = () => {
-  const [selectedValues, setSelectedValues] = useState([]);
+  const [selectedValues, setSelectedValues] = useState(0);
+  const dispatch = useDispatch();
+
+  const addtoCart = () => dispatch(actions.addMovie());
+  const removeFromCart = () => dispatch(actions.removeMovie());
+  const cartValue = useSelector(state => state.addMovieToCart);
 
   const handleButtonClick = (value) => {
-    setSelectedValues([...selectedValues, `${value}kr`]);
+    setSelectedValues(selectedValues + value);
+    addtoCart();
+  }
+  
+  const removeFromCurrentCart = (value) => {
+    setSelectedValues(value = 0);
+    removeFromCart();
   };
 
   return (
@@ -22,7 +35,9 @@ const OneMovie = () => {
         <button onClick={() => handleButtonClick(99)}>99kr</button>
       </section>
 
-      <p>Temporär kundkorg: {selectedValues.join(', ')}</p>
+      <p>Temporär kundkorg: {selectedValues} :-</p>
+      <p> visar hur mycket man har i kundkorgen: {cartValue} </p>
+      <button onClick={removeFromCurrentCart}> ta bort filmen från korgen</button>
     </>
   );
 };
