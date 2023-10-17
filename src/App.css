@@ -21,6 +21,7 @@ p {
   display: flex;
   flex-direction: column;
 }
+
 .navbar_actions button {
   margin: 5px;
 }
@@ -68,4 +69,25 @@ input {
 .movie-card {
   flex: 0 0 calc(23% - 10px);
   margin-bottom: 20px;
+}
+
+.payment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Make sure it's on top of other content */
+}
+
+.payment-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
 }

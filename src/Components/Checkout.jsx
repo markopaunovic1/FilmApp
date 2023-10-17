@@ -1,10 +1,24 @@
 import { useState } from 'react';
+import Popup from 'reactjs-popup';
+import payment from '../assets/payment.gif';
 
 const Checkout = () => {
-  const [selectedOption, setSelectedOption] = useState(''); // Default selected option
+  const [selectedOption, setSelectedOption] = useState('');
+  const [isPaymentOpen, setPaymentOpen] = useState(false);
+
+  let priceToPay = 200;
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+  };
+
+  const handlePayment = () => {
+    //open a popup?
+
+    setPaymentOpen(true);
+
+    // Reset values upon completion
+    setSelectedOption('');
   };
 
   return (
@@ -65,10 +79,18 @@ const Checkout = () => {
 
       <div className='payment_order'>
         <p>list of movies</p>
-        <p>and price</p>
+        <p>{priceToPay}kr</p>
       </div>
 
-      <button>pay button</button>
+      <Popup trigger={<button onClick={handlePayment}>Pay</button>} modal>
+        {(close) => (
+          <div className='modal'>
+            <div className='content'>
+              <img src={payment} alt='Payment GIF' />
+            </div>
+          </div>
+        )}
+      </Popup>
     </>
   );
 };
