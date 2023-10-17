@@ -3,17 +3,17 @@
  * - Search(string, page number)
  *     Search for string with an optional page number that otherwise
  *     defaults to 1.
- * 
+ *
  * - getMovie(id)
- *     Get movie details from id. 
- * 
+ *     Get movie details from id.
+ *
  * - getGenres()
  *     Get all genres
- * 
+ *
  * All functions returns a promise object.
- * 
- * TODO:  popular movies and trending. 
- * 
+ *
+ * TODO:  popular movies and trending.
+ *
  */
 
 const apiKey = "5c7d12582c5635775b1cc2ce60b8eca9";
@@ -59,21 +59,29 @@ export async function getGenres() {
 
 //Get movies from genre
 export async function getMoviesFromGenre(id) {
-    const url = baseUrl + "discover/movie?api_key=" + apiKey + "&with_genres=" + id;
-    return addPath(await fetchUrl(url));
+  const url =
+    baseUrl + "discover/movie?api_key=" + apiKey + "&with_genres=" + id;
+  return addPath(await fetchUrl(url));
 }
 
 //Get trending movies (option day, week)
-export async function getTrending(time_window="day") {
-    const url = baseUrl + "trending/movie/" + time_window + "?api_key=" + apiKey;
+export async function getTrending(time_window = "day") {
+  const url = baseUrl + "trending/movie/" + time_window + "?api_key=" + apiKey;
 
-    return addPath(await fetchUrl(url));
+  return addPath(await fetchUrl(url));
 }
 
 export async function getRecommendation(id, pageNr = 1) {
-    const url = baseUrl + "movie/" + id + "/recommendations?api_key=" + apiKey + "&page=" + pageNr;
+  const url =
+    baseUrl +
+    "movie/" +
+    id +
+    "/recommendations?api_key=" +
+    apiKey +
+    "&page=" +
+    pageNr;
 
-    return addPath(await fetchUrl(url));
+  return addPath(await fetchUrl(url));
 }
 
 //Fulhack 3000 to add image path and youtube path
