@@ -19,12 +19,12 @@
 const apiKey = "5c7d12582c5635775b1cc2ce60b8eca9";
 const baseUrl = "http://api.themoviedb.org/3/";
 const imagePath = "https://image.tmdb.org/t/p/original";
-const youtubePath = "https://www.youtube.com/watch?v=";
+const youtubePath = "https://www.youtube.com/embed/"//"https://www.youtube.com/watch?v=";
 
 //Search for the input on TMDB
 //Optional page number
 //Returns a promise
-export async function search(input, pageMr = 1) {
+export async function search(input, pageNr = 1) {
   const url =
     baseUrl +
     "search/movie?api_key=" +
@@ -32,7 +32,7 @@ export async function search(input, pageMr = 1) {
     "&query=" +
     input +
     "&page=" +
-    pageMr;
+    pageNr;
 
   return addPath(await fetchUrl(url));
 }

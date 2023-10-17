@@ -1,9 +1,22 @@
 import MovieCard from "./MovieCard";
-import { getTrending } from "./tmdb";
+import { getTrending, search } from "./tmdb";
 import { useEffect, useState } from "react";
 
 const AllMovies = () => {
   const [data, setData] = useState([]);
+  const [searchBar, setSearchBar] = useState("");
+
+  const searchBarChanged = (e) => {
+    e.preventDefault();
+    setSearchBar(e.target.value);
+    console.log(searchBar);
+  }
+
+  const searchMovie = async (e) => {
+    e.preventDefault();
+    let response = await search(searchBar);
+    setData(response.results);
+  };
 
   const getData = async () => {
     let response = await getTrending();
@@ -19,7 +32,9 @@ const AllMovies = () => {
       <p>All Movies in lists </p>
 
       <label>
-        <input type="text" id="search" placeholder="Sök film" />
+        <form onSubmit={searchMovie}>
+          <input type="text" id="search" placeholder="Sök film" onChange={searchBarChanged} />
+        </form>
       </label>
 
       <section className="all-movies-container">
@@ -28,7 +43,7 @@ const AllMovies = () => {
             className="movie-card"
             imageUrl={movie.poster_path}
             filmName={movie.original_title}
-            id= {movie.id}
+            id={movie.id}
           />
         ))}
       </section>
@@ -37,4 +52,3 @@ const AllMovies = () => {
 };
 
 export default AllMovies;
-
