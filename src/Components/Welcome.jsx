@@ -8,12 +8,12 @@ function Welcome() {
       <p>Welcome page</p>
       <section>
         <label>
-          <input type='text' id='search' placeholder='Sök film' />
+          <input type='text' id='search' placeholder=' Sök film, katalog      🔍' />
         </label>
       </section>
 
       <section>
-        <h2>Populära filmer</h2>
+        <h2>Topplista</h2>
         <div className='welcome_movie_container'>
           <MovieCard imageUrl='image_url_1' filmName='Film 1' />
           <MovieCard imageUrl='image_url_2' filmName='Film 2' />

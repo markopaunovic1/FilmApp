@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import trash from'../assets/trash.png'
 
 const Kundkorg = () => {
   const navigate = useNavigate();
@@ -9,18 +10,20 @@ const Kundkorg = () => {
 
   return (
     <section>
-      <p>display kundkorg</p>
+      <h3>Varukorg</h3>
       <div className='kundkorg_movie'>
         <p>image</p>
         <p>title</p>
-        <button>-</button>
         <p>1</p>
-        <button>+</button>
         <p>pris</p>
-        <p>släng-knapp</p>
+        <img src={trash} alt='släng-knapp'/>
       </div>
-      <p>pris</p>
-      <button onClick={handleNavigateToCheckout}>knapp till utcheck</button>
+
+      <footer className='checka_ut'>
+      <p>Summa</p>
+      <button onClick={handleNavigateToCheckout}>CHECKA UT</button>
+      </footer>
+      
     </section>
   );
 };
