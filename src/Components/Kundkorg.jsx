@@ -2,6 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../features/addMovieToCart';
 
+import trash from'../assets/trash.png'
+
+
 const Kundkorg = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -15,16 +18,20 @@ const Kundkorg = () => {
 
   return (
     <section>
-      <p>display kundkorg</p>
+      <h3>Varukorg</h3>
       <div className='kundkorg_movie'>
         <p>image</p>
         <p>title</p>
         <p>1</p>
-        <p>pris {amountValue}</p>
-        <img onClick={removeFromCart} src="https://www.svgrepo.com/show/349637/trash.svg" alt="trash" className="trash-image"/>
+        <p>pris</p>
+        <img src={trash} alt='släng-knapp'/>
       </div>
-      <p>totala priset: </p>
-      <button onClick={handleNavigateToCheckout}>knapp till utcheck</button>
+
+      <footer className='checka_ut'>
+      <p>pris {amountValue}</p>
+      <button onClick={handleNavigateToCheckout}>CHECKA UT</button>
+      </footer>
+      
     </section>
   );
 };

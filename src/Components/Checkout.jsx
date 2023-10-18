@@ -1,18 +1,37 @@
 import { useState } from 'react';
 
+import Popup from 'reactjs-popup';
+import payment from '../assets/payment.gif';
+
+import kort from'../assets/kort.png'
+import swish from'../assets/swish.png'
+import klarna from'../assets/klarna.png'
+
+
 const Checkout = () => {
-  const [selectedOption, setSelectedOption] = useState(''); // Default selected option
+  const [selectedOption, setSelectedOption] = useState('');
+  const [isPaymentOpen, setPaymentOpen] = useState(false);
+
+  let priceToPay = 200;
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
+  const handlePayment = () => {
+    //open a popup?
+
+    setPaymentOpen(true);
+
+    // Reset values upon completion
+    setSelectedOption('');
+  };
+
   return (
     <>
-      <p>display checkout</p>
-      <p>orderbekräftelse</p>
+      <h3>orderbekräftelse</h3>
       <div className='info_about_customer'>
-        <p> Information om kund</p>
+        <h4> Information om kund</h4>
         <label>
           Namn:
           <input type='text' id='name' placeholder='Skriv ditt namn' />
@@ -30,8 +49,9 @@ const Checkout = () => {
       </div>
 
       <div>
-        <p>betalningsmöjligheter</p>
+        
         <div className='payment_selection'>
+        <h4>betalningsmetod</h4>
           <label>
             <input
               type='radio'
@@ -40,6 +60,7 @@ const Checkout = () => {
               onChange={handleOptionChange}
             />
             Swish
+            <img src={swish} alt='swish'/>
           </label>
 
           <label>
@@ -49,7 +70,8 @@ const Checkout = () => {
               checked={selectedOption === 'kortbetalning'}
               onChange={handleOptionChange}
             />
-            Kortbetalning
+            Kortbetalning 
+            <img src={kort} alt='kort'/>
           </label>
           <label>
             <input
@@ -59,16 +81,32 @@ const Checkout = () => {
               onChange={handleOptionChange}
             />
             Klarna
+            <img src={klarna} alt='klarna'/>
           </label>
         </div>
       </div>
 
       <div className='payment_order'>
+
         <p>list of movies</p>
-        <p>and price</p>
+        <p> FilmImage</p>
+        <p>title</p>
+        <p>1st.</p>
       </div>
 
-      <button>pay button</button>
+<footer className='pay_button'>
+<p>{priceToPay}kr</p>
+<Popup trigger={<button onClick={handlePayment}>Pay</button>} modal>
+        {(close) => (
+          <div className='modal'>
+            <div className='content'>
+              <img src={payment} alt='Payment GIF' />
+            </div>
+          </div>
+        )}
+      </Popup>
+</footer>
+
     </>
   );
 };

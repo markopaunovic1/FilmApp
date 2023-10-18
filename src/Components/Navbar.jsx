@@ -1,6 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../features/addMovieToCart';
+import kundvang from'../assets/kundvang.png'
+import bakåtknapp from'../assets/bakåtknapp.png'
 
 function Navbar() {
   const navigate = useNavigate();
@@ -29,25 +31,20 @@ function Navbar() {
     <nav className='navbar'>
       <section className='navbar_title'>
         {location.pathname !== '/' && (
-          <button onClick={handleNavigateBack}>Bakåt</button>
+           <img src={bakåtknapp} alt="" 
+           onClick={handleNavigateBack}/>
         )}
       </section>
-      
+
       <section className='navbar_logo'>
-        <h1>Film App</h1>
+        <h1>FilmFyndet</h1>
       </section>
-      <section className='navbar_actions'>
-        <button onClick={handleNavigateToAllMovies}>Till All Movies</button>
-        <button onClick={handleNavigateToCheckout}>Till Checkout</button>
-        <button onClick={handleNavigateToKundkorg}>Till kundkorg</button>
 
-        <div>
-        <p>cart</p>
-        <img onClick={handleNavigateToKundkorg} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Ic_shopping_cart_48px.svg/2048px-Ic_shopping_cart_48px.svg.png" alt="cart"  className="trash-image"/>
+      <section>
+        <img src={kundvang} alt="" 
         <p>{cartValue}</p>
-        </div>
-
-      </section>
+        onClick={handleNavigateToKundkorg}/>
+        </section>
     </nav>
   );
 }

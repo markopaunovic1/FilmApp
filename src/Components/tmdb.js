@@ -3,29 +3,28 @@
  * - Search(string, page number)
  *     Search for string with an optional page number that otherwise
  *     defaults to 1.
- * 
+ *
  * - getMovie(id)
- *     Get movie details from id. 
- * 
+ *     Get movie details from id.
+ *
  * - getGenres()
  *     Get all genres
- * 
+ *
  * All functions returns a promise object.
- * 
- * TODO: Add get movies for a genre, popular movies and trending. 
- *       Add genre to search if supported.
- * 
+ *
+ * TODO:  popular movies and trending.
+ *
  */
 
 const apiKey = "5c7d12582c5635775b1cc2ce60b8eca9";
 const baseUrl = "http://api.themoviedb.org/3/";
 const imagePath = "https://image.tmdb.org/t/p/original";
-const youtubePath = "https://www.youtube.com/watch?v=";
+const youtubePath = "https://www.youtube.com/embed/"//"https://www.youtube.com/watch?v=";
 
 //Search for the input on TMDB
 //Optional page number
 //Returns a promise
-export async function search(input, pageMr = 1) {
+export async function search(input, pageNr = 1) {
   const url =
     baseUrl +
     "search/movie?api_key=" +
@@ -33,7 +32,7 @@ export async function search(input, pageMr = 1) {
     "&query=" +
     input +
     "&page=" +
-    pageMr;
+    pageNr;
 
   return addPath(await fetchUrl(url));
 }
@@ -56,6 +55,33 @@ export async function getMovie(id) {
 export async function getGenres() {
   const url = baseUrl + "genre/movie/list?api_key=" + apiKey;
   return await fetchUrl(url);
+}
+
+//Get movies from genre
+export async function getMoviesFromGenre(id) {
+  const url =
+    baseUrl + "discover/movie?api_key=" + apiKey + "&with_genres=" + id;
+  return addPath(await fetchUrl(url));
+}
+
+//Get trending movies (option day, week)
+export async function getTrending(time_window = "day") {
+  const url = baseUrl + "trending/movie/" + time_window + "?api_key=" + apiKey;
+
+  return addPath(await fetchUrl(url));
+}
+
+export async function getRecommendation(id, pageNr = 1) {
+  const url =
+    baseUrl +
+    "movie/" +
+    id +
+    "/recommendations?api_key=" +
+    apiKey +
+    "&page=" +
+    pageNr;
+
+  return addPath(await fetchUrl(url));
 }
 
 //Fulhack 3000 to add image path and youtube path
