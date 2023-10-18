@@ -1,7 +1,10 @@
+
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../features/addMovieToCart';
+import { actionsAmount } from '../features/cartAmountValue';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getMovie } from './tmdb';
 
 const OneMovie = (id) => {
@@ -20,20 +23,25 @@ const OneMovie = (id) => {
   const dispatch = useDispatch();
 
   const addtoCart = () => dispatch(actions.addMovie());
-  const removeFromCart = () => dispatch(actions.removeMovie());
-  const cartValue = useSelector(state => state.addMovieToCart);
+  const hireMovie = () => dispatch(actionsAmount.hireMovie());
+  const buyMovie = () => dispatch(actionsAmount.buyMovie());
+  
   const params = useParams();
   const currentMovie = params.onemovie;
 
+  const navigate = useNavigate();
+
   const handleButtonClick = (value) => {
-    setSelectedValues(selectedValues + value);
+    setSelectedValues(value);
     addtoCart();
+    navigate(-1);
+
+    if (value == 39) {
+      hireMovie();
+    } else if (value == 99) {
+      buyMovie();
+    }
   }
-  
-  const removeFromCurrentCart = (value) => {
-    setSelectedValues(value = 0);
-    removeFromCart();
-  };
 
   //function that gets the movie data of the currentmovie-name
 
@@ -67,10 +75,6 @@ const OneMovie = (id) => {
         <h4 onClick={() => handleButtonClick(39)}>Hyra 39kr/dygn</h4>
         <h4 onClick={() => handleButtonClick(99)}> Köp 99kr</h4>
       </section>
-
-      <p>Temporär kundkorg: {selectedValues} :-</p>
-      <p> visar hur mycket man har i kundkorgen: {cartValue} </p>
-      <button onClick={removeFromCurrentCart}> ta bort filmen från korgen</button>
     </>
   );
 };

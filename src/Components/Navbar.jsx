@@ -1,4 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions } from '../features/addMovieToCart';
 import kundvang from'../assets/kundvang.png'
 import bakåtknapp from'../assets/bakåtknapp.png'
 
@@ -23,6 +25,8 @@ function Navbar() {
     navigate('/kundkorg');
   };
 
+  const cartValue = useSelector(state => state.addMovieToCart);
+
   return (
     <nav className='navbar'>
       <section className='navbar_title'>
@@ -38,16 +42,9 @@ function Navbar() {
 
       <section>
         <img src={kundvang} alt="" 
+        <p>{cartValue}</p>
         onClick={handleNavigateToKundkorg}/>
         </section>
-
-
-      {/* <section className='navbar_actions'>
-        <button onClick={handleNavigateToAllMovies}>Till All Movies</button>
-        <button onClick={handleNavigateToCheckout}>Till Checkout</button>
-        <button onClick={handleNavigateToKundkorg}>Till kundkorg</button>
-      </section> */}
-
     </nav>
   );
 }

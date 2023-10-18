@@ -110,6 +110,12 @@ input:hover{
   margin-bottom: 20px;
 }
 
+.trash-image {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  -webkit-filter: grayscale(1) invert(1);
+}
 
 .payment-overlay {
   position: fixed;
@@ -171,5 +177,4 @@ input:hover{
   bottom: 20px;
   right: 10px;
 }
-
 

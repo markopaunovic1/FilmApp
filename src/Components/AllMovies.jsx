@@ -36,6 +36,7 @@ const AllMovies = () => {
           <input type="text" id="search" placeholder="Sök film" onChange={searchBarChanged} />
         </form>
       </label>
+      <p></p>
 
       <section className="all-movies-container">
         {data.map((movie, index) => (
