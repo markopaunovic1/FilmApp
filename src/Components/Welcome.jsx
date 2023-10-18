@@ -28,11 +28,12 @@ function Welcome() {
       if (i === 4) {
         break;
       }
-      const moviesFromGenres = await getMoviesFromGenre(genres[i]?.id);
+      const moviesFromGenres = await getMoviesFromGenre(genres[i].id);
       movies.push(moviesFromGenres);
     }
     setMovieGenres(genres);
     setData(movies);
+    console.log(movies);
   };
 
   useEffect(() => {
@@ -56,7 +57,7 @@ function Welcome() {
         <section>
           <h2>{genre.name}</h2>
           <div className="welcome_movie_container">
-            {data[index].results.slice(0,10).map((movie, mIndex) => (
+            {data[index]?.results.slice(0,10).map((movie, mIndex) => (
               <MovieCard
                 imageUrl={movie.poster_path}
                 filmName={movie.original_title}
