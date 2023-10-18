@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../features/addMovieToCart';
@@ -9,6 +8,10 @@ import { getMovie } from './tmdb';
 
 const OneMovie = (id) => {
   const [movie, setMovie] = useState([]);
+  const params = useParams();
+  const currentMovie = params.onemovie;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const getInfo = async () => {
     let response = await getMovie(currentMovie);
@@ -20,20 +23,21 @@ const OneMovie = (id) => {
   }, []);
 
   const [selectedValues, setSelectedValues] = useState(0);
-  const dispatch = useDispatch();
 
-  const addtoCart = () => dispatch(actions.addMovie());
+  const addtoCart = (movie) => dispatch(actions.addMovie(movie));
   const hireMovie = () => dispatch(actionsAmount.hireMovie());
   const buyMovie = () => dispatch(actionsAmount.buyMovie());
-  
-  const params = useParams();
-  const currentMovie = params.onemovie;
 
-  const navigate = useNavigate();
+  const movieDetails = {
+    id: movie.id,
+    name: movie.original_title,
+    image: movie.poster_path,
+    description: movie.overview,
+  };
 
   const handleButtonClick = (value) => {
     setSelectedValues(value);
-    addtoCart();
+    addtoCart(movieDetails);
     navigate(-1);
 
     if (value == 39) {
@@ -41,15 +45,13 @@ const OneMovie = (id) => {
     } else if (value == 99) {
       buyMovie();
     }
-  }
-
-  //function that gets the movie data of the currentmovie-name
+  };
 
   return (
     <>
       <p>display one movie</p>
       <h2>{movie.original_title}</h2>
-      {typeof movie.videos != "undefined" ? (
+      {typeof movie.videos != 'undefined' ? (
         <iframe
           width='560'
           height='315'
