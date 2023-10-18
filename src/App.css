@@ -17,6 +17,15 @@ p {
   align-items: center;
 }
 
+.navbar_actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar_actions button {
+  margin: 5px;
+}
+
 .one_movie_payment_options {
   display: flex;
   flex-direction: row;
@@ -101,6 +110,28 @@ input:hover{
   margin-bottom: 20px;
 }
 
+
+.payment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Make sure it's on top of other content */
+}
+
+.payment-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+}
+
 .kundkorg_movie{
   background-color: #d9d9d91a;
   padding: 10px;
@@ -118,6 +149,7 @@ input:hover{
  border-radius: 10px;
  padding: 10px;
 }
+
 .kundkorg_movie img:hover{
   background-color: red;
 }
