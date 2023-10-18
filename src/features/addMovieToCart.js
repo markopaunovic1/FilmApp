@@ -1,18 +1,38 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createAction, createReducer } from '@reduxjs/toolkit';
 
-
-const addMovie = createAction('add movie');
+const addMovie = createAction('add movie', function prepare(movie) {
+  return { payload: movie };
+});
 const removeMovie = createAction('remove movie');
 
-const actions = {addMovie, removeMovie};
+const clearCart = createAction('clear cart');
 
-const initialState = 0;
+const actions = { addMovie, removeMovie, clearCart };
 
-const reducer = createReducer(initialState, builder => {
-    builder
-        .addCase(addMovie, (state, action) => state + 1)
-        .addCase(removeMovie, (state, action) => state -1)
+const initialState = {
+  cartItems: [],
+};
+
+const reducer = createReducer(initialState, (builder) => {
+  builder
+    .addCase(addMovie, (state, action) => {
+      const movie = {
+        id: action.payload.id,
+        name: action.payload.name,
+        image: action.payload.image,
+        description: action.payload.description,
+      };
+      state.cartItems = [...state.cartItems, movie];
+    })
+    .addCase(removeMovie, (state, action) => {
+      state.cartItems = state.cartItems.filter(
+        (item) => item.id !== action.payload.movieId
+      );
+    })
+    .addCase(clearCart, (state, action) => {
+      console.log('Clearing cart');
+      state.cartItems = [];
+    });
 });
 
-
-export {reducer, actions};
+export { reducer, actions };

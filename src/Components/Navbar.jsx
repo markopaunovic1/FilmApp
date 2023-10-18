@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../features/addMovieToCart';
-import kundvang from'../assets/kundvang.png'
-import bakåtknapp from'../assets/bakåtknapp.png'
+import kundvang from '../assets/kundvang.png';
+import bakåtknapp from '../assets/bakåtknapp.png';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -13,26 +13,19 @@ function Navbar() {
     //navigates back to start
   };
 
-  const handleNavigateToAllMovies = () => {
-    navigate('/allmovies');
-  };
-
-  const handleNavigateToCheckout = () => {
-    navigate('/checkout');
-  };
-
   const handleNavigateToKundkorg = () => {
     navigate('/kundkorg');
   };
 
-  const cartValue = useSelector(state => state.addMovieToCart);
+  const cartValue = useSelector((state) =>
+    state.cart.cartItems ? state.cart.cartItems.length : 0
+  );
 
   return (
     <nav className='navbar'>
       <section className='navbar_title'>
         {location.pathname !== '/' && (
-           <img src={bakåtknapp} alt="" 
-           onClick={handleNavigateBack}/>
+          <img src={bakåtknapp} alt='' onClick={handleNavigateBack} />
         )}
       </section>
 
@@ -41,10 +34,9 @@ function Navbar() {
       </section>
 
       <section>
-        <img src={kundvang} alt="" 
-        onClick={handleNavigateToKundkorg}/>
+        <img src={kundvang} alt='' onClick={handleNavigateToKundkorg} />
         <p>{cartValue}</p>
-        </section>
+      </section>
     </nav>
   );
 }

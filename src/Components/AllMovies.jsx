@@ -1,16 +1,16 @@
-import MovieCard from "./MovieCard";
-import { getTrending, search } from "./tmdb";
-import { useEffect, useState } from "react";
+import MovieCard from './MovieCard';
+import { getTrending, search } from './tmdb';
+import { useEffect, useState } from 'react';
 
 const AllMovies = () => {
   const [data, setData] = useState([]);
-  const [searchBar, setSearchBar] = useState("");
+  const [searchBar, setSearchBar] = useState('');
 
   const searchBarChanged = (e) => {
     e.preventDefault();
     setSearchBar(e.target.value);
     console.log(searchBar);
-  }
+  };
 
   const searchMovie = async (e) => {
     e.preventDefault();
@@ -33,15 +33,21 @@ const AllMovies = () => {
 
       <label>
         <form onSubmit={searchMovie}>
-          <input type="text" id="search" placeholder="Sök film" onChange={searchBarChanged} />
+          <input
+            type='text'
+            id='search'
+            placeholder='Sök film'
+            onChange={searchBarChanged}
+          />
         </form>
       </label>
       <p></p>
 
-      <section className="all-movies-container">
+      <section className='all-movies-container'>
         {data.map((movie, index) => (
           <MovieCard
-            className="movie-card"
+            key={movie.id}
+            className='movie-card'
             imageUrl={movie.poster_path}
             filmName={movie.original_title}
             id={movie.id}

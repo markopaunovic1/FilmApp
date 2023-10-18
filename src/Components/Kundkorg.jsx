@@ -2,15 +2,18 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../features/addMovieToCart';
 
-import trash from'../assets/trash.png'
-
+import trash from '../assets/trash.png';
 
 const Kundkorg = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
-  const removeFromCart = () => dispatch(actions.removeMovie());
-  const amountValue = useSelector(state => state.cartAmountValue);
+  //const amountValue = useSelector((state) => state.cartAmountValue);
+
+  const removeFromCart = (movieId) => {
+    dispatch(actions.removeMovie({ movieId }));
+  };
 
   const handleNavigateToCheckout = () => {
     navigate('/checkout'); // Update with the correct URL for checkout
@@ -19,19 +22,23 @@ const Kundkorg = () => {
   return (
     <section>
       <h3>Varukorg</h3>
-      <div className='kundkorg_movie'>
-        <p>image</p>
-        <p>title</p>
-        <p>1</p>
-        <p>pris</p>
-        <img src={trash} alt='släng-knapp'/>
-      </div>
+      {Array.isArray(cartItems) && cartItems.length > 0 ? (
+        cartItems.map((movie) => (
+          <div key={movie.id} className='kundkorg_movie'>
+            <img src={movie.image} alt='Movie Poster' />
+            <p>{movie.title}</p>
+            <button onClick={() => removeFromCart(movie.id)}>
+              <img src={trash} alt='släng-knapp' />
+            </button>
+          </div>
+        ))
+      ) : (
+        <p> no items in cart. </p>
+      )}
 
       <footer className='checka_ut'>
-      <p>pris {amountValue}</p>
-      <button onClick={handleNavigateToCheckout}>CHECKA UT</button>
+        <button onClick={handleNavigateToCheckout}>CHECKA UT</button>
       </footer>
-      
     </section>
   );
 };
