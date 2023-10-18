@@ -86,12 +86,12 @@ const Checkout = () => {
         </div>
       </div>
 
-      <div className='payment_order'>
-
-        <p>list of movies</p>
-        <p> FilmImage</p>
+      <div className='orderList'>
+        <h4>list of movies</h4>
+        <div className='payment_order'> <p> FilmImage</p>
         <p>title</p>
         <p>1st.</p>
+        </div>
       </div>
 
 <footer className='pay_button'>
