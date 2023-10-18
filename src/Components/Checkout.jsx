@@ -99,6 +99,8 @@ const Checkout = () => {
               <img src={movie.image} alt='Movie Poster' />
               <p>{movie.title}</p>
               <p>pris</p>
+
+   
             </div>
           ))
         ) : (

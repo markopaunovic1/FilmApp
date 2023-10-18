@@ -49,7 +49,6 @@ const OneMovie = (id) => {
 
   return (
     <>
-      <p>display one movie</p>
       <h2>{movie.original_title}</h2>
       {typeof movie.videos != 'undefined' ? (
         <iframe
@@ -71,12 +70,12 @@ const OneMovie = (id) => {
         <h2>{movie.original_title}</h2>
       )}
 
-      <p>{movie.overview}</p>
+      <p className='infoMovie'>{movie.overview}</p>
 
-      <section className='one_movie_payment_options'>
+      <footer className='one_movie_payment_options'>
         <h4 onClick={() => handleButtonClick(39)}>Hyra 39kr/dygn</h4>
         <h4 onClick={() => handleButtonClick(99)}> Köp 99kr</h4>
-      </section>
+      </footer>
     </>
   );
 };
