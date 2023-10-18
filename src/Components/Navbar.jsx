@@ -42,8 +42,8 @@ function Navbar() {
 
       <section>
         <img src={kundvang} alt="" 
-        <p>{cartValue}</p>
         onClick={handleNavigateToKundkorg}/>
+        <p>{cartValue}</p>
         </section>
     </nav>
   );
