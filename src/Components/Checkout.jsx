@@ -1,6 +1,12 @@
 import { useState } from 'react';
+
 import Popup from 'reactjs-popup';
 import payment from '../assets/payment.gif';
+
+import kort from'../assets/kort.png'
+import swish from'../assets/swish.png'
+import klarna from'../assets/klarna.png'
+
 
 const Checkout = () => {
   const [selectedOption, setSelectedOption] = useState('');
@@ -23,10 +29,9 @@ const Checkout = () => {
 
   return (
     <>
-      <p>display checkout</p>
-      <p>orderbekräftelse</p>
+      <h3>orderbekräftelse</h3>
       <div className='info_about_customer'>
-        <p> Information om kund</p>
+        <h4> Information om kund</h4>
         <label>
           Namn:
           <input type='text' id='name' placeholder='Skriv ditt namn' />
@@ -44,8 +49,9 @@ const Checkout = () => {
       </div>
 
       <div>
-        <p>betalningsmöjligheter</p>
+        
         <div className='payment_selection'>
+        <h4>betalningsmetod</h4>
           <label>
             <input
               type='radio'
@@ -54,6 +60,7 @@ const Checkout = () => {
               onChange={handleOptionChange}
             />
             Swish
+            <img src={swish} alt='swish'/>
           </label>
 
           <label>
@@ -63,7 +70,8 @@ const Checkout = () => {
               checked={selectedOption === 'kortbetalning'}
               onChange={handleOptionChange}
             />
-            Kortbetalning
+            Kortbetalning 
+            <img src={kort} alt='kort'/>
           </label>
           <label>
             <input
@@ -73,16 +81,22 @@ const Checkout = () => {
               onChange={handleOptionChange}
             />
             Klarna
+            <img src={klarna} alt='klarna'/>
           </label>
         </div>
       </div>
 
       <div className='payment_order'>
+
         <p>list of movies</p>
-        <p>{priceToPay}kr</p>
+        <p> FilmImage</p>
+        <p>title</p>
+        <p>1st.</p>
       </div>
 
-      <Popup trigger={<button onClick={handlePayment}>Pay</button>} modal>
+<footer className='pay_button'>
+<p>{priceToPay}kr</p>
+<Popup trigger={<button onClick={handlePayment}>Pay</button>} modal>
         {(close) => (
           <div className='modal'>
             <div className='content'>
@@ -91,6 +105,8 @@ const Checkout = () => {
           </div>
         )}
       </Popup>
+</footer>
+
     </>
   );
 };
