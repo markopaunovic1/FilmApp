@@ -36,11 +36,13 @@ const Kundkorg = () => {
           </div>
         ))
       ) : (
-        <p> no items in cart. </p>
+        <p> Glöm inte att lägga till varor i din kundkorg. </p>
       )}
 
       <footer className='checka_ut'>
-        <button onClick={handleNavigateToCheckout}>CHECKA UT</button>
+        {cartItems && cartItems.length > 0 && (
+          <button onClick={handleNavigateToCheckout}>Checka ut</button>
+        )}
       </footer>
     </section>
   );
