@@ -9,8 +9,6 @@ const Kundkorg = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-  //const amountValue = useSelector((state) => state.cartAmountValue);
-
   const removeFromCart = (movieId) => {
     dispatch(actions.removeMovie({ movieId }));
   };
@@ -27,6 +25,7 @@ const Kundkorg = () => {
           <div key={movie.id} className='kundkorg_movie'>
             <img src={movie.image} alt='Movie Poster' />
             <p>{movie.title}</p>
+            <p>{movie.value} kr</p>
             <button onClick={() => removeFromCart(movie.id)}>
               <img src={trash} alt='släng-knapp' />
             </button>

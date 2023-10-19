@@ -28,23 +28,24 @@ const OneMovie = (id) => {
   const hireMovie = () => dispatch(actionsAmount.hireMovie());
   const buyMovie = () => dispatch(actionsAmount.buyMovie());
 
-  const movieDetails = {
-    id: movie.id,
-    name: movie.original_title,
-    image: movie.poster_path,
-    description: movie.overview,
-  };
-
   const handleButtonClick = (value) => {
-    setSelectedValues(value);
-    addtoCart(movieDetails);
-    navigate(-1);
-
     if (value == 39) {
       hireMovie();
     } else if (value == 99) {
       buyMovie();
     }
+
+    const movieDetails = {
+      id: movie.id,
+      name: movie.original_title,
+      image: movie.poster_path,
+      description: movie.overview,
+      value: value,
+    };
+
+    setSelectedValues(value);
+    addtoCart(movieDetails);
+    navigate(-1);
   };
 
   return (

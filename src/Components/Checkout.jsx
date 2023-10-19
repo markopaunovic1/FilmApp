@@ -15,12 +15,17 @@ const Checkout = () => {
   const dispatch = useDispatch();
   const checkoutItems = useSelector((state) => state.cart.cartItems);
 
-  let priceToPay = 200;
+  //räknar ut priset att betala
+  let priceToPay = checkoutItems.reduce(
+    (total, movie) => total + movie.value,
+    0
+  );
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
+  //tömmer listan med filmer i reducern
   const clearCart = () => {
     dispatch(actions.clearCart());
   };
@@ -98,9 +103,7 @@ const Checkout = () => {
             <div key={movie.id} className='kundkorg_movie'>
               <img src={movie.image} alt='Movie Poster' />
               <p>{movie.title}</p>
-              <p>pris</p>
-
-   
+              <p>{movie.value} kr</p>
             </div>
           ))
         ) : (
