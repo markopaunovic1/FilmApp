@@ -102,13 +102,17 @@ input:hover {
   flex-wrap: nowrap;
   overflow-x: auto;
 }
+.welcome_movie_container img{
+  height: 100px;
+  margin: 5px;
+}
 
 .small_film_list{
   margin: 5px;
 }
 .small_film_list img{
   border-radius: 10px;
-  width: 100%;
+  width: 75px;
 }
 .all-movies-container {
   display: flex;
@@ -189,7 +193,7 @@ iframe{
  }
  
 
-.trashImg:hover {
+.trashImg:hover img{
   border-radius: 10px;
   background-color: red;
 }
