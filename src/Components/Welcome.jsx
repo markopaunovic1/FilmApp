@@ -11,7 +11,6 @@ function Welcome() {
   const searchBarChanged = (e) => {
     e.preventDefault();
     setSearchBar(e.target.value);
-    console.log(searchBar);
   };
 
   const searchMovie = async (e) => {
@@ -33,7 +32,6 @@ function Welcome() {
     }
     setMovieGenres(genres);
     setData(movies);
-    console.log(movies);
   };
 
   useEffect(() => {
