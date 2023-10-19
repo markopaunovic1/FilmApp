@@ -108,7 +108,11 @@ const Checkout = () => {
             </div>
           ))
         ) : (
-          <p> no items in cart. </p>
+          <p>
+            {' '}
+            Tack för ditt köp. Du hittar filmerna i din mail alldeles strax.
+            Välkommen tillbaka snart igen!{' '}
+          </p>
         )}
       </div>
 
