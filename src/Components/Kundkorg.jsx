@@ -26,16 +26,23 @@ const Kundkorg = () => {
             <img src={movie.image} alt='Movie Poster' />
             <p>{movie.title}</p>
             <p>{movie.value} kr</p>
-           <div className='trashImg'>  
-            <img src={trash} alt='släng-knapp' onClick={() => removeFromCart(movie.id)} />
+            <div className='trashImg'>
+              <img
+                src={trash}
+                alt='släng-knapp'
+                onClick={() => removeFromCart(movie.id)}
+              />
+            </div>
           </div>
         ))
       ) : (
-        <p> no items in cart. </p>
+        <p> Glöm inte att lägga till varor i din kundkorg. </p>
       )}
 
       <footer className='checka_ut'>
-        <button onClick={handleNavigateToCheckout}>CHECKA UT</button>
+        {cartItems && cartItems.length > 0 && (
+          <button onClick={handleNavigateToCheckout}>Checka ut</button>
+        )}
       </footer>
     </section>
   );
