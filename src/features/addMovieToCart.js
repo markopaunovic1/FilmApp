@@ -21,6 +21,7 @@ const reducer = createReducer(initialState, (builder) => {
         name: action.payload.name,
         image: action.payload.image,
         description: action.payload.description,
+        value: action.payload.value,
       };
       state.cartItems = [...state.cartItems, movie];
     })
