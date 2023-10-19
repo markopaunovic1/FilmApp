@@ -211,3 +211,19 @@ iframe{
   align-items: flex-end;
   justify-content: flex-start;
 }
+
+.cartAndAmount{
+  display: flex;
+  font-size: 32px;
+  align-items: center;
+  font-weight: bold;
+  padding: 15px;
+  background-color: rgba(137, 43, 226, 0.254);
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cartValue {
+  margin-left: 5px;
+}

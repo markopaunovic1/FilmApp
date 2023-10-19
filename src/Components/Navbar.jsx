@@ -34,8 +34,10 @@ function Navbar() {
       </section>
 
       <section>
-        <img src={kundvang} alt='' onClick={handleNavigateToKundkorg} />
-        <p>{cartValue}</p>
+        <div className='cartAndAmount'>
+          <img src={kundvang} alt='' onClick={handleNavigateToKundkorg} width={30} height={30}/>
+          <p className='cartValue'>{cartValue}</p>
+        </div>
       </section>
     </nav>
   );
