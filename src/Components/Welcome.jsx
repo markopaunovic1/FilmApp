@@ -1,22 +1,23 @@
 import MovieCard from "./MovieCard";
 import { getGenres, getMoviesFromGenre } from "./tmdb";
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function Welcome() {
   //lista som loopar igenom alla filmer i de olika kategorierna
   const [data, setData] = useState([]);
   const [movieGenres, setMovieGenres] = useState([]);
   const [searchBar, setSearchBar] = useState("");
+  const navigate = useNavigate();
 
   const searchBarChanged = (e) => {
     e.preventDefault();
     setSearchBar(e.target.value);
   };
 
-  const searchMovie = async (e) => {
+  const searchMovie = (e) => {
     e.preventDefault();
-    let response = await search(searchBar);
-    setData(response.results);
+    navigate(`/allmovies/`, { state: { searchTerm: {searchBar}}});
   };
 
   const getData = async () => {
@@ -43,11 +44,14 @@ function Welcome() {
       <p>Welcome page</p>
       <section>
         <label>
+        <form onSubmit={searchMovie}>
           <input
             type="text"
             id="search"
             placeholder=" Sök film, katalog      🔍"
+            onChange={searchBarChanged}
           />
+          </form>
         </label>
       </section>
 
