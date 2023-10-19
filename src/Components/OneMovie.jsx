@@ -51,7 +51,7 @@ const OneMovie = (id) => {
   return (
     <>
       <h2>{movie.original_title}</h2>
-      {typeof movie.videos != 'undefined' ? (
+      {typeof movie.videos?.results[0] != "undefined" ? (
         <iframe
           width='560'
           height='315'

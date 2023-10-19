@@ -26,9 +26,8 @@ const Kundkorg = () => {
             <img src={movie.image} alt='Movie Poster' />
             <p>{movie.title}</p>
             <p>{movie.value} kr</p>
-            <button onClick={() => removeFromCart(movie.id)}>
-              <img src={trash} alt='släng-knapp' />
-            </button>
+           <div className='trashImg'>  
+            <img src={trash} alt='släng-knapp' onClick={() => removeFromCart(movie.id)} />
           </div>
         ))
       ) : (

@@ -76,22 +76,12 @@ p {
 }
 
 
-.payment_order {
-  background-color: #d9d9d91a;
-  padding: 20px;
-  border-radius: 20px;
-/*vet inte om detta ska vara med*/
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+.payment_order img{
+  width: 20%;
 }
 
-/* denna kan tas bort */
-img {
-  max-width: 300px;
-  max-height: 300px;
-}
+
+
 
 .orderList{
   background-color: #d9d9d91a;
@@ -129,6 +119,7 @@ input:hover {
 .all-movies-container > div {
   width: 20%;
 }
+
 
 iframe{
   border-radius: 10px;
@@ -183,32 +174,40 @@ iframe{
   border-radius: 20px;
   border: 2px solid transparent;
   box-shadow: 2px 2px 10px black;
+  margin-bottom: 10px;
 }
 
-.kundkorg_movie img {
-  background-color: rgb(24, 24, 24);
+.kundkorg_movie img{
+  width: 20%;
   border-radius: 10px;
-  padding: 10px;
 }
 
-.kundkorg_movie img:hover {
+ .trashImg{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+ }
+ 
+
+.trashImg:hover {
+  border-radius: 10px;
   background-color: red;
 }
+
+
 
 .checka_ut {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  position: absolute;
-  bottom: 20px;
-  right: 10px;
+  padding: 10px;
+  align-items: flex-end;
+  justify-content: flex-start;
 }
 
 .pay_button {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  position: absolute;
-  bottom: 20px;
-  right: 10px;
+  padding: 10px;
+  align-items: flex-end;
+  justify-content: flex-start;
 }
