@@ -37,6 +37,7 @@ const Checkout = () => {
     // Reset values upon completion
     clearCart();
     setSelectedOption('');
+    priceToPay = 0;
   };
 
   return (
