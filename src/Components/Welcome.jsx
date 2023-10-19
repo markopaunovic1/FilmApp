@@ -42,7 +42,6 @@ function Welcome() {
 
   return (
     <>
-      <p>Welcome page</p>
       <section>
         <label>
           <input
