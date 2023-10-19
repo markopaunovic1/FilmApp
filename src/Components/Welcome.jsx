@@ -53,7 +53,7 @@ function Welcome() {
         </label>
       </section>
 
-      {movieGenres.map((genre, index) => (
+      {movieGenres.slice(0,4).map((genre, index) => (
         <section>
           <h2>{genre.name}</h2>
           <div className="welcome_movie_container">
