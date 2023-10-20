@@ -17,7 +17,7 @@
  */
 
 const apiKey = "5c7d12582c5635775b1cc2ce60b8eca9";
-const baseUrl = "http://api.themoviedb.org/3/";
+const baseUrl = "https://api.themoviedb.org/3/";
 const imagePath = "https://image.tmdb.org/t/p/original";
 const youtubePath = "https://www.youtube.com/embed/"//"https://www.youtube.com/watch?v=";
 
